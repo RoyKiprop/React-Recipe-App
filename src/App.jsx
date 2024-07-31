@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
-
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import HomePage from "./Pages/HomePage";
+import RecipeDetailsPage from "./Pages/RecipeDetailsPage";
 
 const API = "c9c3d429617148a1b979576b79f5d727"
 
@@ -37,7 +38,7 @@ function App() {
     async function fetchVegetarian() {
       try {
         const response = await fetch(
-          `https://api.spoonacular.com/recipes/random?number=10&include-tags=vegetarian&apiKey=${API}`
+          `https://api.spoonacular.com/recipes/random?number=12&include-tags=vegetarian&apiKey=${API}`
         );
         const data = await response.json();
         localStorage.setItem('vegetarian', JSON.stringify(data.recipes))
@@ -57,9 +58,15 @@ function App() {
 
   return (
   
-      <>
-        <HomePage data={popular} vegetarian={Vegetarian}/>
-      </>
+       <BrowserRouter>
+        <Routes>
+          <Route index element={<HomePage data={popular} vegetarian={Vegetarian}/>}/>
+          <Route path="details" element={<RecipeDetailsPage/>}/>
+        </Routes>
+
+       </BrowserRouter>
+        
+      
 
   );
 }

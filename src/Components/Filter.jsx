@@ -6,22 +6,23 @@ import { faPlus} from '@fortawesome/free-solid-svg-icons';
 function Filter() {
   return (
     <div className="flex justify-center gap-2 mb-1">
-       <Button>
+       <Button type="Filter">
        <FontAwesomeIcon icon={faPlus}/>
         Afican
         </Button>
-       <Button>
+       <Button type="Filter">
        <FontAwesomeIcon icon={faPlus}/>
         American
         </Button>
-       <Button>
+       <Button type="Filter">
        <FontAwesomeIcon icon={faPlus}/>
         Italian
         </Button>
-       <Button>
+       <Button type="Filter">
        <FontAwesomeIcon icon={faPlus}/>
         Japanese
         </Button>
+        
       
     </div>
   )
