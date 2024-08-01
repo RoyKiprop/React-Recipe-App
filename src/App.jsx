@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import HomePage from "./Pages/HomePage";
 import RecipeDetailsPage from "./Pages/RecipeDetailsPage";
+import IngredientsPage from "./Pages/IngredientsPage";
+import InstructionsPage from "./Pages/InstructionsPage";
 
 const API = "c9c3d429617148a1b979576b79f5d727"
 
@@ -61,7 +63,11 @@ function App() {
        <BrowserRouter>
         <Routes>
           <Route index element={<HomePage data={popular} vegetarian={Vegetarian}/>}/>
-          <Route path="details" element={<RecipeDetailsPage/>}/>
+          <Route path="details" element={<RecipeDetailsPage/>}>
+            {/* <Route index element={<Navigate replace to="instructions" />} />
+            <Route path="instructions" element={<InstructionsPage/>} />
+            <Route path="ingredients" element={<IngredientsPage />} /> */}
+          </Route>
         </Routes>
 
        </BrowserRouter>

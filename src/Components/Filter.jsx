@@ -5,7 +5,7 @@ import { faPlus} from '@fortawesome/free-solid-svg-icons';
 
 function Filter() {
   return (
-    <div className="flex justify-center gap-2 mb-1">
+    <div className="flex justify-center gap-8 mb-8">
        <Button type="Filter">
        <FontAwesomeIcon icon={faPlus}/>
         Afican
