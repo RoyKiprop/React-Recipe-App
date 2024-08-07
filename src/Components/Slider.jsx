@@ -22,7 +22,7 @@ function Slider({ data }) {
       >
         {data.map((recipe) => (
           <SplideSlide key={recipe.id}>
-            <Card type="recipe">
+            <Card>
               <img
                 src={recipe.image}
                 alt={recipe.title}

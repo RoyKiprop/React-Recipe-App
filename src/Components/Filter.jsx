@@ -1,31 +1,41 @@
-import Button from "./Button"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus} from '@fortawesome/free-solid-svg-icons'; 
-
+import { FaPizzaSlice } from "react-icons/fa";
+import { FaHamburger } from "react-icons/fa";
+import { GiNoodles } from "react-icons/gi";
+import { GiCakeSlice } from "react-icons/gi";
+import Button from '../Components/Button';
 
 function Filter() {
   return (
-    <div className="flex justify-center gap-8 mb-8">
-       <Button type="Filter">
-       <FontAwesomeIcon icon={faPlus}/>
-        Afican
-        </Button>
-       <Button type="Filter">
-       <FontAwesomeIcon icon={faPlus}/>
-        American
-        </Button>
-       <Button type="Filter">
-       <FontAwesomeIcon icon={faPlus}/>
-        Italian
-        </Button>
-       <Button type="Filter">
-       <FontAwesomeIcon icon={faPlus}/>
-        Japanese
-        </Button>
-        
-      
-    </div>
-  )
+    <nav>
+      <ul className="flex justify-center gap-8 mb-8">
+        <li>
+          <Button type="Filter" to="/category/African">
+          <GiNoodles />
+            African
+          </Button>
+        </li>
+        <li>
+          <Button type="Filter" to="/category/American">
+            <FaHamburger/>
+            American
+          </Button>
+        </li>
+        <li>
+          <Button type="Filter" to="/category/Italian">
+          <FaPizzaSlice />
+            Italian
+          </Button>
+        </li>
+        <li>
+          <Button type="Filter" to="/category/Japanese">
+          <GiCakeSlice />
+            Japanese
+          </Button>
+        </li>
+      </ul>
+    </nav>
+  );
 }
 
-export default Filter
+export default Filter;
+

@@ -1,7 +1,10 @@
-
+import { GiKnifeFork } from "react-icons/gi";
+import { NavLink } from "react-router-dom";
 function Logo() {
   return (
-  <img src="../public/icons8-recipe-50.png"/>
+    <NavLink to={'/'}>
+      <GiKnifeFork className="h-8 w-8"/>
+    </NavLink>
   )
 }
 
