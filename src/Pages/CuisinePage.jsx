@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import Card from "../Components/Card";
 import { Link } from "react-router-dom";
 
-const API = "c9c3d429617148a1b979576b79f5d727";
+
+const API = import.meta.env.REACT_APP_API_KEY
 
 function Cuisine() {
   const { country } = useParams();

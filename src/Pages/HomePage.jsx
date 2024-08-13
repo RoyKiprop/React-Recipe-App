@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import Popular from "../Components/Popular";
 import Vegetables from "../Components/Vegetables";
 
-const API = "c9c3d429617148a1b979576b79f5d727"
+
+const API = import.meta.env.REACT_APP_API_KEY
 
 function HomePage() {
   const [popular, setPopular] = useState([]);

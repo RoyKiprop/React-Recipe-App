@@ -1,45 +1,56 @@
 /* eslint-disable react/prop-types */
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css/core";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import Card from "./Card";
 import { Link } from "react-router-dom";
 
-function Slider({ data }) {
+function ProductSlider({ data }) {
+  const settings = {
+    dots: true, 
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false, 
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+    ],
+  };
+
   return (
-    <div className="w-full py-4">
-      <Splide
-        tag="section"
-        options={{
-          perPage: 4,
-          pagination: false,
-          arrows: false,
-          drag: "free",
-          snap: true,
-          gap: "1rem",
-          type: "slide",
-          perMove: 1,
-          rewind: false,
-        }}
-      >
+    <div className="slider-container">
+      <Slider {...settings}>
         {data.map((recipe) => (
-          <SplideSlide key={recipe.id}>
-            <Card>
-              <Link to={`/recipe/details/${recipe.id}`}>
-                <img
-                  src={recipe.image}
-                  alt={recipe.title}
-                  className="w-full h-48 object-cover rounded-lg"
-                />
-                <p className="p-4 text-center font-semibold text-gray-800 truncate">
-                  {recipe.title}
-                </p>
-              </Link>
-            </Card>
-          </SplideSlide>
+          <Card key={recipe.id}>
+            <Link to={`/recipe/details/${recipe.id}`}>
+              <img
+                src={recipe.image}
+                alt={recipe.title}
+                className="w-full h-48 object-cover rounded-lg"
+              />
+              <p className="p-4 text-center font-bold text-gray-800 truncate">
+                {recipe.title}
+              </p>
+            </Link>
+          </Card>
         ))}
-      </Splide>
+      </Slider>
     </div>
   );
 }
 
-export default Slider;
+export default ProductSlider;

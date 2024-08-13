@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-
 import Button from "../Components/Button";
 import IngredientsPage from "./IngredientsPage";
 import { useEffect, useState } from "react";
@@ -7,7 +6,8 @@ import InstructionsPage from "./InstructionsPage";
 import { useParams } from "react-router-dom";
 import Summary from "./Summary";
 
-const API = "c9c3d429617148a1b979576b79f5d727";
+
+const API = import.meta.env.REACT_APP_API_KEY
 
 function RecipeDetailsPage() {
   const { Id } = useParams();
@@ -47,7 +47,7 @@ function RecipeDetailsPage() {
 
   return (
     <main>
-      <div className="flex flex-col space-y-5 lg:flex-row space-x-5  mx-36 w-[80%] ">
+      <div className="flex flex-col space-y-5 md:flex-row md:space-x-5 md:mx-36 w-[80%] ">
         <div className="flex flex-col gap-4 w-[50%]">
           <p className="font-bold text-xl">{details.title}</p>
           <img
