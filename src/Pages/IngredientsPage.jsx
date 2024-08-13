@@ -1,14 +1,13 @@
+/* eslint-disable react/prop-types */
 
-
-function IngredientsPage() {
+function IngredientsPage({recipe}) {
   return (
     <div>
       <ul className="list-disc mt-8">
-        <li>1 cup rice</li>
-        <li>2 cups water</li>
-        <li>1 tsp salt</li>
-        <li>1 tbsp olive oil</li>
-        <li>1/2 onion, chopped</li>
+        {recipe.extendedIngredients.map(ingredient =>
+        <li key={ingredient.id}>{ingredient.original}</li>
+        )}
+        
       </ul>
     </div>
   )

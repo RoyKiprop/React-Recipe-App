@@ -31,6 +31,7 @@ function HomePage() {
     if(fetchedRecipe){
       
       setPopular(JSON.parse(fetchedRecipe))
+      // console.log(fetchedRecipe)
       
     } else{
       fetchRecipe()
@@ -55,6 +56,7 @@ function HomePage() {
     const fetchedVegetarian = localStorage.getItem('vegetarian')
     if(fetchedVegetarian){
       setVegetarian(JSON.parse(fetchedVegetarian))
+      // console.log(fetchedVegetarian)
      
     } else{
       fetchVegetarian()

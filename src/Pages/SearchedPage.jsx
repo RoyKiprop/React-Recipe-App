@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Card from "../Components/Card";
+import { Link } from "react-router-dom";
 
 const API = "c9c3d429617148a1b979576b79f5d727";
 
@@ -45,16 +46,18 @@ function Filtered() {
     <div className="mx-28 grid grid-cols-4 gap-5">
       {searchData.map((recipe, index) => (
         <Card key={index}>
-          <div>
-            <img
-              src={recipe.image}
-              alt={recipe.title}
-              className="w-full  h-48 object-cover rounded-lg"
-            />
-            <h4 className="p-4 font-semibold text-gray-800 truncate">
-              {recipe.title}
-            </h4>
-          </div>
+          <Link to={`/recipe/details/${recipe.id}`}>
+            <div>
+              <img
+                src={recipe.image}
+                alt={recipe.title}
+                className="w-full  h-48 object-cover rounded-lg"
+              />
+              <h4 className="p-4 font-semibold text-gray-800 truncate">
+                {recipe.title}
+              </h4>
+            </div>
+          </Link>
         </Card>
       ))}
     </div>

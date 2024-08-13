@@ -17,12 +17,12 @@ function Search() {
  
 
   return (
-    <form  className="flex justify-center w-full mb-6 mt-2" onSubmit={handleSubmit}>
-      <div className="relative w-[50%]">
+    <form  className=" flex justify-center w-full mb-6 mt-2" onSubmit={handleSubmit}>
+      <div className="relative w-[60%]  border-2 ">
         <input
           value={searchInput}
           type="text"
-          className="bg-black text-white pl-10 pr-4 py-2  focus:outline-none"
+          className="bg-black text-white pl-10 pr-4 py-2 w-full  focus:outline-none"
           placeholder="Search..."
           onChange={(e) =>setSearchInput(e.target.value)}
         />

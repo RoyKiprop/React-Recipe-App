@@ -2,6 +2,7 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css/core";
 import Card from "./Card";
+import { Link } from "react-router-dom";
 
 function Slider({ data }) {
   return (
@@ -23,14 +24,16 @@ function Slider({ data }) {
         {data.map((recipe) => (
           <SplideSlide key={recipe.id}>
             <Card>
-              <img
-                src={recipe.image}
-                alt={recipe.title}
-                className="w-full h-48 object-cover rounded-lg"
-              />
-              <p className="p-4 text-center font-semibold text-gray-800 truncate">
-                {recipe.title}
-              </p>
+              <Link to={`/recipe/details/${recipe.id}`}>
+                <img
+                  src={recipe.image}
+                  alt={recipe.title}
+                  className="w-full h-48 object-cover rounded-lg"
+                />
+                <p className="p-4 text-center font-semibold text-gray-800 truncate">
+                  {recipe.title}
+                </p>
+              </Link>
             </Card>
           </SplideSlide>
         ))}

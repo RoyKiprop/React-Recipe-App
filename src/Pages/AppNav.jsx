@@ -9,9 +9,9 @@ function AppNav() {
     <div>
       <Routes>
         <Route index element={<HomePage />} />
-        <Route path="details" element={<RecipeDetailsPage />} />
         <Route path="category/:country" element={<Cuisine />} />
         <Route path="searched/:search" element={<FilteredSearch />} />
+        <Route path="recipe/details/:Id" element={<RecipeDetailsPage />} />
       </Routes>
     </div>
   );
