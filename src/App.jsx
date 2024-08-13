@@ -7,7 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 function App() {
 
   return (
-    <main className="pt-5 bg-gray-100">
+    <main className="pt-5">
       <BrowserRouter>
         <HeaderSection/>
         <AppNav/>

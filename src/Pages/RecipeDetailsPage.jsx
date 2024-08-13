@@ -5,13 +5,14 @@ import IngredientsPage from "./IngredientsPage";
 import { useEffect, useState } from "react";
 import InstructionsPage from "./InstructionsPage";
 import { useParams } from "react-router-dom";
+import Summary from "./Summary";
 
 const API = "c9c3d429617148a1b979576b79f5d727";
 
 function RecipeDetailsPage() {
   const { Id } = useParams();
 
-  const [activePage, setActivePage] = useState("instructions");
+  const [activePage, setActivePage] = useState("summary");
   const [details, setDetails] = useState({});
 
   function handleActivePage(page) {
@@ -27,7 +28,7 @@ function RecipeDetailsPage() {
           `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API}`
         );
         const data = await response.json();
-        console.log(data); 
+        console.log(data);
         localStorage.setItem(storageKey, JSON.stringify(data));
         setDetails(data);
       } catch (error) {
@@ -37,7 +38,7 @@ function RecipeDetailsPage() {
 
     const storedDetails = localStorage.getItem(storageKey);
     if (storedDetails) {
-      console.log(storedDetails)
+      console.log(storedDetails);
       setDetails(JSON.parse(storedDetails));
     } else {
       fetchSearched(Id);
@@ -46,17 +47,23 @@ function RecipeDetailsPage() {
 
   return (
     <main>
-      <div className="flex gap-10 mx-36 mt-10 w-[100%]">
-        <div className="flex flex-col gap-4 w-[40%]">
+      <div className="flex flex-col space-y-5 lg:flex-row space-x-5  mx-36 w-[80%] ">
+        <div className="flex flex-col gap-4 w-[50%]">
           <p className="font-bold text-xl">{details.title}</p>
           <img
-            src={details.image} 
+            src={details.image}
             className="w-[90%] h-55 object-fill"
-            alt="Recipe" 
+            alt="Recipe"
           />
         </div>
-        <div className="w-[60%]">
+        <div className="w-[50%]">
           <div className="flex gap-6">
+            <Button
+              type="moreDetails"
+              onClick={() => handleActivePage("summary")}
+            >
+              Summary
+            </Button>
             <Button
               type="moreDetails"
               onClick={() => handleActivePage("instructions")}
@@ -70,8 +77,11 @@ function RecipeDetailsPage() {
               Ingredients
             </Button>
           </div>
-          {activePage === "instructions" && <InstructionsPage recipe={details} />}
-          {activePage === "ingredients" && <IngredientsPage recipe={details}/>}
+          {activePage === "summary" && <Summary recipe={details} />}
+          {activePage === "instructions" && (
+            <InstructionsPage recipe={details} />
+          )}
+          {activePage === "ingredients" && <IngredientsPage recipe={details} />}
         </div>
       </div>
     </main>

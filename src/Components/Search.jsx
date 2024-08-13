@@ -22,7 +22,7 @@ function Search() {
         <input
           value={searchInput}
           type="text"
-          className="bg-black text-white pl-10 pr-4 py-2 w-full  focus:outline-none"
+          className="bg-black text-white pl-10 pr-4 py-2 w-full rounded-lg   focus:outline-none"
           placeholder="Search..."
           onChange={(e) =>setSearchInput(e.target.value)}
         />

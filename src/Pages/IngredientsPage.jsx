@@ -3,9 +3,11 @@
 function IngredientsPage({recipe}) {
   return (
     <div>
-      <ul className="list-disc mt-8">
+      <ul className="list-disc mt-6">
         {recipe.extendedIngredients.map(ingredient =>
         <li key={ingredient.id}>{ingredient.original}</li>
+
+
         )}
         
       </ul>
