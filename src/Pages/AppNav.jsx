@@ -6,7 +6,7 @@ import Cuisine from "./CuisinePage";
 
 function AppNav() {
   return (
-    <div>
+    <div className="pt-4">
       <Routes>
         <Route index element={<HomePage />} />
         <Route path="category/:country" element={<Cuisine />} />

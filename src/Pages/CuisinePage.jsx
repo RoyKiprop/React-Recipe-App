@@ -35,7 +35,7 @@ function Cuisine() {
   }, [country]);
 
   return (
-    <div className="mx-28 grid grid-cols-4 gap-5">
+    <div className="mx-28 grid md:grid-cols-4 gap-5">
       {cuisine.map((recipe, index) => (
         <Card key={index}>
           <Link to={`/recipe/details/${recipe.id}`}>
