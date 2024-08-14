@@ -27,7 +27,7 @@ function RecipeDetailsPage() {
           `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API}`
         );
         const data = await response.json();
-        console.log(data);
+       
         localStorage.setItem(storageKey, JSON.stringify(data));
         setDetails(data);
       } catch (error) {
@@ -37,7 +37,7 @@ function RecipeDetailsPage() {
 
     const storedDetails = localStorage.getItem(storageKey);
     if (storedDetails) {
-      console.log(storedDetails);
+   
       setDetails(JSON.parse(storedDetails));
     } else {
       fetchSearched(Id);

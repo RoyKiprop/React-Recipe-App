@@ -24,7 +24,7 @@ function Filtered() {
           );
           const data = await response.json();
           localStorage.setItem("searchedItem", JSON.stringify(data));
-          console.log(data);
+         
           setSearch(data.results);
         } catch (error) {
           console.error("Error fetching recipes:", error);

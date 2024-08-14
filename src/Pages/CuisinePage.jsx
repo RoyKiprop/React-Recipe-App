@@ -18,7 +18,7 @@ function Cuisine() {
         );
         const data = await response.json();
         localStorage.setItem(storageKey, JSON.stringify(data));
-        console.log(data.results);
+        
         setCuisine(data.results);
       } catch (error) {
         console.error("Error fetching cuisines:", error);
@@ -28,7 +28,7 @@ function Cuisine() {
     const storedSearch = localStorage.getItem(storageKey);
     if (storedSearch) {
       setCuisine(JSON.parse(storedSearch).results);
-      console.log(cuisine);
+    
     } else {
       fetchSearched(country);
     }
