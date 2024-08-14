@@ -6,8 +6,7 @@ import InstructionsPage from "./InstructionsPage";
 import { useParams } from "react-router-dom";
 import Summary from "./Summary";
 
-
-const API = import.meta.env.REACT_APP_API_KEY
+const API = import.meta.env.VITE_API_KEY
 
 function RecipeDetailsPage() {
   const { Id } = useParams();
@@ -47,17 +46,17 @@ function RecipeDetailsPage() {
 
   return (
     <main>
-      <div className="flex flex-col space-y-5 md:flex-row md:space-x-5 md:mx-36 w-[80%] ">
-        <div className="flex flex-col gap-4 w-[50%]">
+      <div className="flex flex-col space-y-10 mx-8 w-[90%] md:flex-row md:space-x-5 md:mx-36  md:w-[80%] ">
+        <div className="flex flex-col gap-4 w-full md:w-1/2">
           <p className="font-bold text-xl">{details.title}</p>
           <img
             src={details.image}
-            className="w-[90%] h-55 object-fill"
+            className="w-[95%] md:w-[90%] h-55 object-fill"
             alt="Recipe"
           />
         </div>
-        <div className="w-[50%]">
-          <div className="flex gap-6">
+        <div className="w-full md:w-1/2">
+          <div className="flex gap-2">
             <Button
               type="moreDetails"
               onClick={() => handleActivePage("summary")}

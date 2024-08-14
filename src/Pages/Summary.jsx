@@ -2,9 +2,9 @@
 
 function Summary({recipe}) {
   return (
-    <div className="mt-6">
+    <div className="mt-8">
       <p
-        className="w-[70%] font-medium"
+        className=" font-medium"
         dangerouslySetInnerHTML={{ __html: recipe.summary }}
       ></p>
     </div>

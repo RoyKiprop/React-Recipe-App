@@ -6,7 +6,6 @@ import Popular from "../Components/Popular";
 import Vegetables from "../Components/Vegetables";
 
 
-const API = import.meta.env.REACT_APP_API_KEY
 
 function HomePage() {
   const [popular, setPopular] = useState([]);
@@ -17,48 +16,51 @@ function HomePage() {
     async function fetchRecipe() {
       try {
         const response = await fetch(
-          `https://api.spoonacular.com/recipes/random?number=10&apiKey=${API}`
+          `https://api.spoonacular.com/recipes/random?number=10&apiKey=${import.meta.env.VITE_API_KEY}`
         );
         const data = await response.json();
         localStorage.setItem('recipes', JSON.stringify(data.recipes))
         setPopular(data.recipes)
-        
       } catch (error) {
         console.error("Error fetching recipes:", error);
       }
     }
-
+  
     const fetchedRecipe = localStorage.getItem("recipes")
-    if(fetchedRecipe){
-      
-      setPopular(JSON.parse(fetchedRecipe))
-      // console.log(fetchedRecipe)
-      
-    } else{
+    if(fetchedRecipe && fetchedRecipe !== "undefined"){
+      try {
+        setPopular(JSON.parse(fetchedRecipe))
+      } catch (error) {
+        console.error("Error parsing stored recipes:", error);
+        fetchRecipe() 
+      }
+    } else {
       fetchRecipe()
     }
   }, []);
 
-    useEffect(function () {
+  useEffect(function () {
     async function fetchVegetarian() {
       try {
         const response = await fetch(
-          `https://api.spoonacular.com/recipes/random?number=12&tags=vegetarian&apiKey=${API}`
+          `https://api.spoonacular.com/recipes/random?number=10&tags=vegetarian&apiKey=${import.meta.env.VITE_API_KEY}`
         );
         const data = await response.json();
         localStorage.setItem('vegetarian', JSON.stringify(data.recipes))
         setVegetarian(data.recipes)
-        
-
       } catch (error) {
         console.error("Error fetching vegetarian:", error);
       }
     }
+  
     const fetchedVegetarian = localStorage.getItem('vegetarian')
-    if(fetchedVegetarian){
-      setVegetarian(JSON.parse(fetchedVegetarian))
-      // console.log(fetchedVegetarian)
-     
+    if(fetchedVegetarian && fetchedVegetarian !== "undefined"){
+      try {
+        setVegetarian(JSON.parse(fetchedVegetarian))
+      } catch (error) {
+        console.error("Error parsing stored vegetarian recipes:", error);
+        fetchVegetarian()
+      }
     } else{
       fetchVegetarian()
     }

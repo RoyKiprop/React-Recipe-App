@@ -7,7 +7,7 @@ import Search from "./Search"
 function HeaderSection(){
    
     return (
-        <div className="mx-28">
+        <div className="mx-8 md:mx-28">
             <Logo/>
             <Search/>
             <Filter/>

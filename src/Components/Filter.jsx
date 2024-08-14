@@ -7,7 +7,7 @@ import Button from '../Components/Button';
 function Filter() {
   return (
     <nav>
-      <ul className="flex justify-center gap-8 mb-8">
+      <ul className="flex justify-center space-x-4 md:space-x-8 mb-10">
         <li>
           <Button type="Filter" to="/category/African">
           <GiNoodles />

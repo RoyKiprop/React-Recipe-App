@@ -5,9 +5,6 @@ import { useParams } from "react-router-dom";
 import Card from "../Components/Card";
 import { Link } from "react-router-dom";
 
-
-const API = import.meta.env.REACT_APP_API_KEY
-
 function Filtered() {
   const { search } = useParams();
 
@@ -23,7 +20,7 @@ function Filtered() {
 
         try {
           const response = await fetch(
-            `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API}&query=${name}&number=12`
+            `https://api.spoonacular.com/recipes/complexSearch?apiKey=${import.meta.env.VITE_API_KEY}&query=${name}&number=12`
           );
           const data = await response.json();
           localStorage.setItem("searchedItem", JSON.stringify(data));

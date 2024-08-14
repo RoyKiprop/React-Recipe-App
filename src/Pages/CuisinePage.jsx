@@ -4,8 +4,6 @@ import Card from "../Components/Card";
 import { Link } from "react-router-dom";
 
 
-const API = import.meta.env.REACT_APP_API_KEY
-
 function Cuisine() {
   const { country } = useParams();
   const [cuisine, setCuisine] = useState([]);
@@ -16,7 +14,7 @@ function Cuisine() {
     async function fetchSearched(name) {
       try {
         const response = await fetch(
-          `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API}&number=12&addRecipeInstructions=true&cuisine=${name}`
+          `https://api.spoonacular.com/recipes/complexSearch?apiKey=${import.meta.env.VITE_API_KEY}&number=12&addRecipeInstructions=true&cuisine=${name}`
         );
         const data = await response.json();
         localStorage.setItem(storageKey, JSON.stringify(data));

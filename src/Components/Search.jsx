@@ -17,8 +17,8 @@ function Search() {
  
 
   return (
-    <form  className=" flex justify-center w-full mb-6 mt-2" onSubmit={handleSubmit}>
-      <div className="relative w-[60%]  border-2 ">
+    <form  className=" flex justify-center w-full mb-5 mt-3 md:mb-6 md:mt-2" onSubmit={handleSubmit}>
+      <div className="relative w-[70%] md:w-[60%]  border-2 ">
         <input
           value={searchInput}
           type="text"
